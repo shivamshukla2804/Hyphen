@@ -3,6 +3,7 @@ const ev = process.env;
 
 const express = require("express");
 const mongoDB = require("./config/mongoDB");
+const posts = require("./routes/posts");
 const userRoute = require("./routes/userProfile");
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(express.json());
 
 // APIS
 app.use("/auth", userRoute);
+app.use("/timeline", posts);
 
 //ERROR 404
 // app.use("*", (req, res) => {
